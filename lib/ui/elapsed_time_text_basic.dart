@@ -7,12 +7,15 @@ class ElapsedTimeTextBasic extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //extraction
     final hundreds = (elapsed.inMilliseconds / 10) % 100;
     final seconds = elapsed.inSeconds % 60;
     final minutes = elapsed.inMinutes % 60;
+
     final hundredsStr = hundreds.toStringAsFixed(0).padLeft(2, '0');
     final secondsStr = seconds.toString().padLeft(2, '0');
     final minutesStr = minutes.toString().padLeft(2, '0');
+    //concatenation to str 00:00.00 format
     return Text(
       '$minutesStr:$secondsStr.$hundredsStr',
       textAlign: TextAlign.center,
